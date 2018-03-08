@@ -8,6 +8,14 @@ self.addEventListener('install', function(event) {
 	);
 });
 
+self.addEventListener('activate', function(event) {
+	event.waitUntil(
+		caches.keys().then(function(keys) {
+			console.log('SW cached keys:', keys);
+		})
+	);
+});
+
 self.addEventListener('fetch', function(event) {
 	event.respondWith(
 		caches.match(event.request).then(function(response) {
