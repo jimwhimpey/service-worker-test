@@ -13,11 +13,17 @@
 <script type="text/javascript">
 	
 	if ('serviceWorker' in navigator) {
+		
 		navigator.serviceWorker.register('/service-worker-test/sw.js').then(function(reg) {
 			console.log('Registration succeeded.', reg);
 		}).catch(function(error) {
 			console.log('Registration failed with', error);
 		});
+		
+		navigator.serviceWorker.getRegistration('/service-worker-test/sw.js').then(function(registration) {
+			debugger;
+		});
+
 	}
 	
 </script>

@@ -9,6 +9,7 @@ self.addEventListener('install', function(event) {
 });
 
 self.addEventListener('activate', function(event) {
+	console.log('SW ACTIVATED');
 	event.waitUntil(
 		caches.keys().then(function(keys) {
 			console.log('SW cache keys:', keys);
