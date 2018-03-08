@@ -7,3 +7,15 @@
 <p><img src="beagle1.jpg" width="500" /></p>
 
 <p><img src="beagle2.jpg" width="500" /></p>
+
+<script type="text/javascript">
+	
+	if ('serviceWorker' in navigator) {
+		navigator.serviceWorker.register('/sw.js').then(function(reg) {
+			console.log('Registration succeeded. Scope is ' + reg.scope);
+		}).catch(function(error) {
+			console.log('Registration failed with ' + error);
+		});
+	}
+	
+</script>
