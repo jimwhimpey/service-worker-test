@@ -1,6 +1,6 @@
 self.addEventListener('install', function(event) {
 	event.waitUntil(
-		caches.open('test-cache').then(function(cache) {
+		caches.open('test-cache-2').then(function(cache) {
 			return cache.addAll([
 				'/service-worker-test/index.html'
 			]);
