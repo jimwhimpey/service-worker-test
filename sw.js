@@ -13,7 +13,7 @@ self.addEventListener('activate', function(event) {
 		caches.keys().then(function(keys) {
 			console.log('SW cache keys:', keys);
 			return Promise.all(keys.map(function(key) {
-				if (key != 'v2') { return caches.delete(key);
+				if (key != 'v2') return caches.delete(key);
 			}));
 		})
 	);
