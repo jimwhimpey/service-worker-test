@@ -24,6 +24,15 @@ self.addEventListener('fetch', function(event) {
 		caches.match(event.request).then(function(response) {
 			if (response) {
 				console.log('In SW cache:', event.request.url);
+				setTimeout(() => {
+					// Wait 5 seconds and fetch a fresh version
+					console.log('Fetching a fresh version and updating cache:', event.request.url);
+					fetch(event.request).then(function(response) {
+						caches.open('v2').then(function(cache) {
+							cache.put(event.request, response.clone());
+						});
+					});
+				}, 5000);
 				return response;
 			} else {
 				console.log('NOT in SW cache, fetching:', event.request.url);
