@@ -19,9 +19,14 @@
 		}).catch(function(error) {
 			console.log('Registration failed with', error);
 		});
-		
-		navigator.serviceWorker.getRegistration('/service-worker-test/sw.js').then(function(registration) {
-			debugger;
+
+		caches.open('v3').then(function(cache) {
+			cache.keys().then(function(keys) {
+				debugger;
+				keys.forEach(function(request, index, array) {
+					console.log('');
+				});
+			});
 		});
 
 	}
