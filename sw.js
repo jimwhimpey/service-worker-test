@@ -4,7 +4,7 @@ self.addEventListener('install', function(event) {
 			return cache.addAll([
 				'/service-worker-test/index.html'
 			]);
-		})	
+		})
 	);
 });
 
@@ -21,6 +21,7 @@ self.addEventListener('activate', function(event) {
 });
 
 self.addEventListener('fetch', function(event) {
+	console.log('fetch event', event);
 	event.respondWith(
 		caches.match(event.request).then(function(response) {
 			if (response) {
